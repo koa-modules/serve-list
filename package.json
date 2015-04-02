@@ -1,0 +1,32 @@
+{
+  "name": "koa-serve-index",
+  "version": "0.0.1",
+  "description": "Serve directory listings for koa",
+  "author": "Fangdun Cai <cfddream@gmail.com>",
+  "license": "MIT",
+  "repository": "koa-modules/serve-index",
+  "keywords": [
+    "serve",
+    "index",
+    "listings",
+    "static"
+  ],
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec --bail --check-leaks test/"
+  },
+  "dependencies": {
+    "serve-index": "^1.6.3",
+    "thenify": "^3.1.0"
+  },
+  "files": [
+    "LICENSE",
+    "index.js"
+  ],
+  "devDependencies": {
+    "after": "^0.8.1",
+    "koa": "^0.18.1",
+    "mocha": "^2.2.1",
+    "supertest": "^0.15.0"
+  }
+}
