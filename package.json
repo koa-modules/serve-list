@@ -1,5 +1,5 @@
 {
-  "name": "koa-serve-index",
+  "name": "koa-serve-list",
   "version": "0.0.1",
   "description": "Serve directory listings for koa",
   "author": "Fangdun Cai <cfddream@gmail.com>",
@@ -8,6 +8,7 @@
   "keywords": [
     "serve",
     "index",
+    "list",
     "listings",
     "static"
   ],
