@@ -1,6 +1,6 @@
 {
   "name": "koa-serve-list",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Serve directory listings for koa",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
