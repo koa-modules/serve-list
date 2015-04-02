@@ -32,14 +32,12 @@ exports = module.exports = function serveIndexWrapper(path, options) {
       this.res.statusCode = 200;
       // 404, serve-index forward non-404 errors
       var result = yield middleware(this.req, this.res);
+      // hacked 404
       if (result === void 0) {
-        // hacked 404
-        if (result === void 0) {
-          var err = new Error();
-          err.message = 'Not Found';
-          err.status = 404;
-          throw err;
-        }
+        var err = new Error();
+        err.message = 'Not Found';
+        err.status = 404;
+        throw err;
       }
     } catch (e) {
       throw e;
