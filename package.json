@@ -4,7 +4,7 @@
   "description": "Serve directory listings for koa",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
-  "repository": "koa-modules/serve-index",
+  "repository": "koa-modules/serve-list",
   "keywords": [
     "serve",
     "index",
