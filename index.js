@@ -30,7 +30,7 @@ exports = module.exports = function serveIndexWrapper(path, options) {
     try {
       // hacked res.statusCode
       this.res.statusCode = 200;
-      // 404, serve-static forward non-404 errors
+      // 404, serve-index forward non-404 errors
       var result = yield middleware(this.req, this.res);
       if (result === void 0) {
         // hacked 404
