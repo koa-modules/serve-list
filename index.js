@@ -1,5 +1,5 @@
 /*!
- * serve-index
+ * serve-list
  * Copyright(c) 2011 Sencha Inc.
  * Copyright(c) 2011 TJ Holowaychuk
  * Copyright(c) 2014-2015 Douglas Christopher Wilson
