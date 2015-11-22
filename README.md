@@ -17,7 +17,21 @@ $ npm install --save koa-serve-list
 
 ## Usage
 
-Adding this into your koa server file:
+### **=1.x**, 100%, working with `koa-v2`
+
+```js
+const Koa = require('koa');
+const serveList = require('koa-serve-list');
+const serveStatic = require('koa-serve-static');
+const app = new Koa();
+
+app.use(serveList(path, options));
+app.use(serveStatic(root, options));
+
+app.listen(3000);
+```
+
+### **<1.x**
 
 ```js
 var koa = require('koa');
@@ -30,12 +44,6 @@ app.use(serveStatic(root, options));
 
 app.listen(3000);
 ```
-
-## API
-
-* **serveList**
-
-> Just **serve-index** wrapper, returns a GeneratorFunction.
 
 [npm-img]: https://img.shields.io/npm/v/koa-serve-list.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/koa-serve-list
