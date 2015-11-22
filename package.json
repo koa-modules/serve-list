@@ -1,6 +1,6 @@
 {
   "name": "koa-serve-list",
-  "version": "0.0.3",
+  "version": "1.0.0-alpha.1",
   "description": "Serve directory listings for koa",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
@@ -21,15 +21,18 @@
   "dependencies": {
     "serve-index": "^1.7.2"
   },
-  "files": [
-    "LICENSE",
-    "index.js"
-  ],
   "devDependencies": {
     "after": "^0.x",
     "isparta": "^4.x",
     "koa": "^2.0.0-alpha.3",
     "mocha": "^2.x",
     "supertest": "^1.x"
-  }
+  },
+  "engines": {
+    "node": ">= 4"
+  },
+  "files": [
+    "LICENSE",
+    "index.js"
+  ]
 }
