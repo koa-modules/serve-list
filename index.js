@@ -11,64 +11,57 @@
  * Module dependencies.
  */
 
-var thenify = require('thenify');
-var originalServeIndex = require('serve-index');
+const originalServeIndex = require('serve-index')
+
+exports = module.exports = serveIndex
 
 /**
  * @param {String} path
  * @param {Object} options
- * @return {GeneratorFunction}
+ * @return {Promise}
  * @api public
  */
 
-exports = module.exports = function serveIndexWrapper(path, options) {
-  var middleware = thenify(originalServeIndex(path, options));
-
-  return serveIndex;
-
-  function* serveIndex(next) {
-    try {
-      // hacked res.statusCode
-      this.res.statusCode = 200;
-      // 404, serve-index forward non-404 errors
-      var result = yield middleware(this.req, this.res);
-      // hacked 404
-      if (result === void 0) {
-        var err = new Error();
-        err.message = 'Not Found';
-        err.status = 404;
-        throw err;
-      }
-    } catch (e) {
-      throw e;
-    }
-    yield next;
+function serveIndex(root, options) {
+  const fn = originalServeIndex(root, options)
+  return (ctx, next) => {
+    return new Promise((resolve, reject) => {
+      // hacked statusCode
+      if (ctx.status === 404) ctx.status = 200
+      ctx.respond = false
+      // stream pipe
+      fn(ctx.req, ctx.res, (err) => {
+        // 404, serve-static forward non-404 errors
+        // force throw error
+        reject(err)
+      })
+    })
   }
 }
 
 Object.defineProperty(exports, 'html', {
-  get: function () {
-    return originalServeIndex.html;
+  get: () => {
+    return originalServeIndex.html
   },
-  set: function(html) {
-    originalServeIndex.html = html;
+  set: (html) => {
+    originalServeIndex.html = html
   }
-});
+})
 
 Object.defineProperty(exports, 'json', {
-  get: function () {
-    return originalServeIndex.json;
+  get: () => {
+    return originalServeIndex.json
   },
-  set: function(json) {
-    originalServeIndex.json = json;
+  set: (json) => {
+    originalServeIndex.json = json
   }
-});
+})
 
 Object.defineProperty(exports, 'plain', {
-  get: function () {
-    return originalServeIndex.plain;
+  get: () => {
+    return originalServeIndex.plain
   },
-  set: function(plain) {
-    originalServeIndex.plain = plain;
+  set: (plain) => {
+    originalServeIndex.plain = plain
   }
-});
+})
