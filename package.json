@@ -1,6 +1,6 @@
 {
   "name": "koa-serve-list",
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0",
   "description": "Serve directory listings for koa",
   "author": "Fangdun Cai <cfddream@gmail.com>",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "test-cov": "istanbul cover node_modules/mocha/bin/_mocha -- --reporter dot --check-leaks test/"
   },
   "dependencies": {
-    "serve-index": "^1.7.2"
+    "serve-index": "^1.x"
   },
   "devDependencies": {
     "after": "^0.x",
@@ -32,7 +32,9 @@
     "node": ">= 4"
   },
   "files": [
+    "History.md",
     "LICENSE",
+    "README.md",
     "index.js"
   ]
 }
